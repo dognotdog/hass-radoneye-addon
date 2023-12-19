@@ -1,0 +1,80 @@
+configuration:
+  devices:
+    name: Device addresses
+    description:
+      List of device physical bluetooth addresses like 00:11:22:33:FF:EE
+      separated by spaces. If not provided, then addon will poll all devices it
+      can see.
+  mqtt_hostname:
+    name: MQTT hostname
+    description:
+      MQTT hostname. Usually it should point to MQTT addon hostname
+      (core-mosquitto).
+  mqtt_port:
+    name: MQTT port
+    description: MQTT port. Usually it should be 1883.
+  mqtt_username:
+    name: MQTT username
+    description:
+      Username of dedicated MQTT user. Usually it should be something like
+      "radoneye".
+  mqtt_password:
+    name: MQTT password
+    description:
+      Dedicated secure password for MQTT user, same as on MQTT set for RadonEye.
+  connect_timeout:
+    name: Connect timeout
+    description: RadonEye device connect timeout.
+  read_timeout:
+    name: Read timeout
+    description: RadonEye device read timeout.
+  reconnect_delay:
+    name: Reconnect delay
+    description: Reconnect delay between attempts.
+  attempts:
+    name: Reconnect attempt count
+    description: Number of attempts to read sensor data from RadonEye device.
+  debug:
+    name: Debug mode
+    description: Enables debug mode (much more verbose logs).
+  interval:
+    name: Scan interval
+    description: Interval between scans.
+  device_topic:
+    name: Device topic name
+    description:
+      Customize device topic name. By default it is
+      "radon_eye/{hostname}/devices/{vendor}/{model}/{serial}".
+  discovery_topic:
+    name: Discovery topic prefix
+    description:
+      Customize discovery topic prefix. By default it is "homeassistant/sensor",
+      automatically suffixed with
+      "/{vendor}-{model}-{serial}/{vendor}-{model}-{serial}-{attr}/config".
+  device_retain:
+    name: Retain device data messages
+    description:
+      Enable to make Home Assistant to be able to read last value even if addon
+      did not publish new value.
+  discovery_retain:
+    name: Retain device discovery messages
+    description:
+      Enable to make Home Assistant to be able to discover device even if addon
+      did not publish new value. Might make complicated to REMOVE device.
+  expire_after:
+    name: Expire after
+    description:
+      If set, it defines the number of seconds after the sensor’s state expires,
+      if it’s not updated. After expiry, the sensor’s state becomes unavailable.
+      Default the sensors state never expires.
+  force_update:
+    name: Force update
+    description:
+      Sends update events even if the value hasn’t changed. Useful if you want
+      to have meaningful value graphs in history.
+  discovery_delay:
+    name: Discovery delay
+    description:
+      Delay between discovery and device events (give some time to Home
+      Assistant to initialize device to be able to ingest following device
+      event).

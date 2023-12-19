@@ -1,0 +1,36 @@
+name: RadonEye
+description:
+  Bridge between bluetooth-based RadonEye devices and MQTT with enabled auto
+  discovery in Home Assistant
+url: https://github.com/sormy/hass-radoneye-addon
+version: 1.0.0
+slug: radoneye
+arch: [armhf, armv7, aarch64, amd64, i386]
+init: false
+host_dbus: true
+services:
+  - mqtt:need
+options:
+  mqtt_hostname: core-mosquitto
+  mqtt_port: 1883
+  mqtt_username: radoneye
+  mqtt_password: ""
+schema:
+  devices: "str?"
+  mqtt_hostname: str
+  mqtt_port: port
+  mqtt_username: "str?"
+  mqtt_password: "password?"
+  connect_timeout: "int?"
+  read_timeout: "int?"
+  reconnect_delay: "int?"
+  attempts: "int?"
+  debug: "bool?"
+  interval: "int?"
+  device_topic: "str?"
+  discovery_topic: "str?"
+  device_retain: "bool?"
+  discovery_retain: "bool?"
+  expire_after: "int?"
+  force_update: "bool?"
+  discovery_delay: "int?"
