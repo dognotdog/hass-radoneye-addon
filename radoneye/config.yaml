@@ -2,7 +2,7 @@ name: RadonEye
 description:
   Bridge between bluetooth-based RadonEye devices and MQTT with enabled auto
   discovery in Home Assistant
-url: https://github.com/sormy/hass-radoneye-addon
+url: https://github.com/dognotdog/hass-radoneye-addon
 version: 1.0.0
 slug: radoneye
 arch: [armhf, armv7, aarch64, amd64, i386]
