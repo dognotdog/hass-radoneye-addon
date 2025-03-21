@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 RUN apk update && apk upgrade
 RUN apk add --no-cache python3 py3-pip git
-RUN git clone https://github.com/sormy/radoneye-reader
+RUN git clone https://github.com/dognotdog/radoneye-reader
 RUN apk del git && apk cache clean
 
 COPY run.sh /
